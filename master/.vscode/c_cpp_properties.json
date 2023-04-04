@@ -8,8 +8,8 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "/home/weygoldt/Documents/PlatformIO/Projects/another_canbus_test/include",
-                "/home/weygoldt/Documents/PlatformIO/Projects/another_canbus_test/src",
+                "/home/weygoldt/projects/TeensyGridCom/master/include",
+                "/home/weygoldt/projects/TeensyGridCom/master/src",
                 "/home/weygoldt/.platformio/packages/framework-arduinoteensy/libraries/FlexCAN_T4",
                 "/home/weygoldt/.platformio/packages/framework-arduinoteensy/cores/teensy4",
                 "/home/weygoldt/.platformio/packages/framework-arduinoteensy/libraries/ADC",
@@ -115,8 +115,8 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "/home/weygoldt/Documents/PlatformIO/Projects/another_canbus_test/include",
-                    "/home/weygoldt/Documents/PlatformIO/Projects/another_canbus_test/src",
+                    "/home/weygoldt/projects/TeensyGridCom/master/include",
+                    "/home/weygoldt/projects/TeensyGridCom/master/src",
                     "/home/weygoldt/.platformio/packages/framework-arduinoteensy/libraries/FlexCAN_T4",
                     "/home/weygoldt/.platformio/packages/framework-arduinoteensy/cores/teensy4",
                     "/home/weygoldt/.platformio/packages/framework-arduinoteensy/libraries/ADC",
