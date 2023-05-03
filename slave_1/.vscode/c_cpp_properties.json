@@ -8,11 +8,10 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "/home/weygoldt/projects/teensygrid-com/master/include",
-                "/home/weygoldt/projects/teensygrid-com/master/src",
+                "/home/weygoldt/projects/teensygrid-com/slave_1/include",
+                "/home/weygoldt/projects/teensygrid-com/slave_1/src",
                 "/home/weygoldt/.platformio/packages/framework-arduinoteensy/libraries/FlexCAN_T4",
                 "/home/weygoldt/.platformio/packages/framework-arduinoteensy/cores/teensy4",
-                "/home/weygoldt/projects/teensygrid-com/master/lib/TeeRec/src",
                 "/home/weygoldt/.platformio/packages/framework-arduinoteensy/libraries/ADC",
                 "/home/weygoldt/.platformio/packages/framework-arduinoteensy/libraries/AccelStepper/src",
                 "/home/weygoldt/.platformio/packages/framework-arduinoteensy/libraries/Adafruit_NeoPixel",
@@ -116,11 +115,10 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "/home/weygoldt/projects/teensygrid-com/master/include",
-                    "/home/weygoldt/projects/teensygrid-com/master/src",
+                    "/home/weygoldt/projects/teensygrid-com/slave_1/include",
+                    "/home/weygoldt/projects/teensygrid-com/slave_1/src",
                     "/home/weygoldt/.platformio/packages/framework-arduinoteensy/libraries/FlexCAN_T4",
                     "/home/weygoldt/.platformio/packages/framework-arduinoteensy/cores/teensy4",
-                    "/home/weygoldt/projects/teensygrid-com/master/lib/TeeRec/src",
                     "/home/weygoldt/.platformio/packages/framework-arduinoteensy/libraries/ADC",
                     "/home/weygoldt/.platformio/packages/framework-arduinoteensy/libraries/AccelStepper/src",
                     "/home/weygoldt/.platformio/packages/framework-arduinoteensy/libraries/Adafruit_NeoPixel",
