@@ -11,3 +11,10 @@ in sync.
 ## Project Log
 
 - 2023/05/03 First successfull tests with 1 master and 3 slave units. 
+
+## To do: 
+- [x] Ping back and forth
+- [x] Implement a master slave communication protocol
+- [ ] Test protocol with multiple slaves
+- [ ] Test sending time stamps
+- [ ] Include protocol into the TeensyGrid logger code
