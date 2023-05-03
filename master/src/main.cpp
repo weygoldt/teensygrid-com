@@ -32,21 +32,24 @@ void can_send(const char *msg)
   Can0.write(message);
 }
 
-const char *can_listen(uint32_t expected_id)
+void can_listen(CAN_message_t &msg)
 {
-  static CAN_message_t msg;
-  static char buf[256];
-
   while (true)
   {
     Can0.read(msg);
 
-    if (msg.len > 0 && msg.id == expected_id)
+    if (msg.len > 0)
     {
-      Serial.println(msg.id, HEX);
-      memcpy(buf, msg.buf, msg.len);
-      buf[msg.len] = '\0';
-      return buf;
+      Serial.print("Received message from ID ");
+      Serial.print(msg.id, HEX);
+      Serial.print(": ");
+      for (int i = 0; i < msg.len; i++)
+      {
+        Serial.print(msg.buf[i], HEX);
+        Serial.print(" ");
+      }
+      Serial.println();
+      return;
     }
   }
 }
@@ -61,19 +64,42 @@ void setup()
 
 void loop()
 {
+  // Send reset message to all slaves
   can_send(MSG_RESET);
-  const char *SLAVE1_STATUS = can_listen(SLAVE1_ID);
 
-  while (strcmp(SLAVE1_STATUS, MSG_FINISHED) != 0)
+  // Listen for finished messages from all slaves
+  bool slave1_finished = false;
+  bool slave2_finished = false;
+  bool slave3_finished = false;
+
+  while (!slave1_finished || !slave2_finished || !slave3_finished)
   {
-    SLAVE1_STATUS = can_listen(SLAVE1_ID);
-    Serial.println(SLAVE1_STATUS);
+    CAN_message_t msg;
+    can_listen(msg); // Listen for any message on the bus
+
+    if (msg.len > 0 && strcmp((const char *)msg.buf, MSG_FINISHED) == 0)
+    {
+      if (msg.id == SLAVE1_ID)
+      {
+        slave1_finished = true;
+        Serial.println("Slave 1 finished recording");
+      }
+      else if (msg.id == SLAVE2_ID)
+      {
+        slave2_finished = true;
+        Serial.println("Slave 2 finished recording");
+      }
+      else if (msg.id == SLAVE3_ID)
+      {
+        slave3_finished = true;
+        Serial.println("Slave 3 finished recording");
+      }
+    }
+
     blink();
   }
 
-  if (strcmp(SLAVE1_STATUS, MSG_FINISHED) == 0)
-  {
-    Serial.println("Slave 1 finished recording");
-    can_send(MSG_RESET);
-  }
+  // All slaves finished, send reset message
+  can_send(MSG_RESET);
+  Serial.println("All slaves finished recording, resetting");
 }
